@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroEventos.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Frame>
+                <Label Text="Cadastro de Evento" TextColor="Black" FontSize="Title" BackgroundColor="LightGray"/>
+            </Frame>
+            <Frame>
+                <VerticalStackLayout>
+                    <Grid RowDefinitions="*, *, *, *, *, *, *, *, *, *" ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Nome do evento:" TextColor="Black"/>
+                        <Entry Grid.Row="1" Grid.ColumnSpan="2" x:Name="txt_nome" Placeholder="Digite o nome do evento." PlaceholderColor="Black" TextColor="Black"/>                        
+                        <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Data de início:" TextColor="Black"/>
+                        <DatePicker Grid.Row="3" Grid.ColumnSpan="2" x:Name="dtpck_datainicio" DateSelected="dtpck_datainicio_DataSelected" Format="dd/MM/yyyy" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray"/>
+                        <Label Grid.Row="4" Grid.ColumnSpan="2" Text="Data de término:" TextColor="Black"/>
+                        <DatePicker Grid.Row="5" Grid.ColumnSpan="2" x:Name="dtpck_datatermino" Format="dd/MM/yyyy" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray"/>
+                        <Label Grid.Row="6" Grid.ColumnSpan="2" Text="Número de participantes:" TextColor="Black"/>
+                        <HorizontalStackLayout Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand">
+                            <Grid RowDefinitions="*" ColumnDefinitions="*, *">
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Value}" BindingContext="{x:Reference stp_participantes}" TextColor="Black"/>
+                                <Stepper Grid.Row="0" Grid.Column="1" x:Name="stp_participantes" Minimum="0" Increment="1" BackgroundColor="LightGray"/>
+                            </Grid>
+                        </HorizontalStackLayout>
+                        <Label Grid.Row="8" Grid.ColumnSpan="2" Text="Local do evento:" TextColor="Black"/>
+                        <Entry Grid.Row="9" Grid.ColumnSpan="2" x:Name="txt_local" Placeholder="Digite o endereço do evento." PlaceholderColor="Black" TextColor="Black"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+            <Button x:Name="bnt_avancar" Text="Avançar" TextColor="Black" BackgroundColor="LightGray" HorizontalOptions="Center" CornerRadius="2" BorderWidth="0" Clicked="bnt_avancar_Clicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppCadastroEventos.SecondaryPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="SecondaryPage"
+             BackgroundColor="White">
+    <StackLayout>
+        <Frame>
+            <Label Text="Resumo do Evento" TextColor="Black" FontSize="Title" BackgroundColor="LightGray"/>
+        </Frame>
+        <Frame>
+            <Grid RowDefinitions="*, *, *, *, *, *, *, *" ColumnDefinitions="*, *">
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Nome do Evento" TextColor="Black" FontSize="Medium"/>
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Nome}" TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Data de início: " TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="Data de término: " TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="4" Grid.Column="0" Text="Número de participantes: " TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding QntParticipantes}" TextColor="Black" FontSize="Micro"/>
+                <Label Grid.Row="5" Grid.ColumnSpan="2" Text="Local do Evento" TextColor="Black" FontSize="Medium"/>
+                <Label Grid.Row="6" Grid.ColumnSpan="2" Text="{Binding Local}" TextColor="Black" FontSize="Micro"/>
+                <Grid Grid.Row="7" Grid.ColumnSpan="2" RowDefinitions="*, *, *" ColumnDefinitions="*, *">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Participante: " TextColor="Black" FontSize="Micro"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding CustoParticipante, StringFormat='{}{0:c}'}" TextColor="Black" FontSize="Micro"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Diária: " TextColor="Black" FontSize="Micro"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding CustoDiaria, StringFormat='{}{0:c}'}" TextColor="Black" FontSize="Micro"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Total: " TextColor="Black" FontSize="Micro"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding CustoEvento, StringFormat='{}{0:c}'}" TextColor="Black" FontSize="Micro"/>
+                </Grid>
+            </Grid>
+        </Frame>
+        <Button x:Name="bnt_voltar" Text="voltar" TextColor="Black" BackgroundColor="LightGray" HorizontalOptions="Center" CornerRadius="2" BorderWidth="0" Clicked="bnt_voltar_Clicked"/>
+    </StackLayout>
+</ContentPage>
